@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>中国竞彩网首页 · 知识库入口</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f4f6f9;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      color: #1f2937;
+      padding: 2rem 1rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .container {
+      max-width: 1120px;
+      width: 100%;
+    }
+
+    /* Hero — 简洁信息区 */
+    .hero {
+      background: #ffffff;
+      padding: 2.5rem 2rem;
+      border-radius: 20px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+      border: 1px solid #e9edf2;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: #111827;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero .sub {
+      font-size: 1.1rem;
+      color: #4b5563;
+      max-width: 640px;
+      margin: 0 auto 1.2rem;
+    }
+
+    .hero p {
+      font-size: 0.98rem;
+      color: #5b6776;
+      background: #f1f4f9;
+      display: inline-block;
+      padding: 0.35rem 1.2rem;
+      border-radius: 40px;
+      border: 1px solid #dce2ea;
+    }
+
+    /* 卡片网格 */
+    .grid-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 1.6rem 1.5rem 1.8rem;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.03);
+      border: 1px solid #eaedf2;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #1e2a3a;
+      margin-bottom: 0.75rem;
+      border-left: 4px solid #b0c1d4;
+      padding-left: 0.8rem;
+    }
+
+    .card p, .card li {
+      font-size: 0.96rem;
+      color: #334155;
+    }
+
+    .card ul {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 0.5rem;
+    }
+
+    .card li {
+      padding: 0.3rem 0;
+      position: relative;
+      padding-left: 1.2rem;
+    }
+
+    .card li::before {
+      content: "·";
+      position: absolute;
+      left: 0;
+      color: #8a9bb0;
+      font-weight: bold;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 0.6rem;
+      margin-top: 0.7rem;
+    }
+
+    .tag-list span {
+      background: #f0f3f8;
+      border: 1px solid #d9e0ea;
+      padding: 0.15rem 0.8rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      color: #2c3e50;
+    }
+
+    .hint-box {
+      background: #f9fafc;
+      border-radius: 18px;
+      padding: 1.4rem 1.6rem;
+      border: 1px solid #dee5ef;
+      margin-bottom: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      gap: 1rem 2rem;
+    }
+
+    .hint-box .label {
+      font-weight: 600;
+      color: #1f2a3f;
+      font-size: 0.9rem;
+      letter-spacing: 0.3px;
+      min-width: 80px;
+    }
+
+    .hint-box .content {
+      flex: 1;
+      color: #2c3e50;
+      font-size: 0.95rem;
+    }
+
+    .hint-box a {
+      color: #1d4ed8;
+      text-decoration: none;
+      border-bottom: 1px solid #b3c9f0;
+    }
+
+    .hint-box a:hover {
+      border-bottom-color: #1d4ed8;
+    }
+
+    .related-section {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1.6rem 1.8rem 1.8rem;
+      border: 1px solid #e3e9f1;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+      margin-bottom: 1.5rem;
+    }
+
+    .related-section h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #1b283a;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid #e8edf5;
+      padding-bottom: 0.5rem;
+    }
+
+    .related-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 1.6rem;
+    }
+
+    .related-items > div {
+      flex: 1 1 180px;
+      background: #f7f9fd;
+      padding: 0.6rem 1rem;
+      border-radius: 40px;
+      border: 1px solid #dde3ef;
+      font-size: 0.93rem;
+      color: #1e3a5f;
+      text-align: center;
+    }
+
+    .faq-preview {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem 1.5rem;
+      margin: 1rem 0 0.2rem;
+    }
+
+    .faq-item {
+      font-size: 0.93rem;
+      padding: 0.25rem 0;
+    }
+
+    .faq-item strong {
+      color: #1e293b;
+      font-weight: 500;
+    }
+
+    .faq-item span {
+      color: #4b5c73;
+    }
+
+    .footer-note {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #6a7b8e;
+      border-top: 1px solid #dce2ec;
+      padding-top: 1.8rem;
+      margin-top: 1rem;
+    }
+
+    .inline-link {
+      color: #1d4ed8;
+      text-decoration: none;
+      border-bottom: 1px solid #b4c9f0;
+    }
+
+    .inline-link:hover {
+      border-bottom-color: #1e40af;
+    }
+
+    @media (max-width: 700px) {
+      body {
+        padding: 1rem 0.8rem;
+      }
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      .grid-2col {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+      }
+      .faq-preview {
+        grid-template-columns: 1fr;
+      }
+      .related-items > div {
+        flex: 1 1 100%;
+      }
+      .hint-box {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+    }
+
+    @media (max-width: 450px) {
+      .hero {
+        padding: 1.8rem 1rem;
+      }
+      .card {
+        padding: 1.2rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- hero -->
+  <div class="hero">
+    <h1>竞彩知识库</h1>
+    <div class="sub">从规则、术语到赛事数据，汇集竞彩相关的常识与查询入口</div>
+    <p>📚 围绕「中国竞彩网首页」持续整理 · 生活化视角</p>
+  </div>
+
+  <!-- 两卡片：介绍区 + 特点区 -->
+  <div class="grid-2col">
+    <div class="card">
+      <h3>📖 主题说明</h3>
+      <p>竞彩不仅是赛事竞猜，更是一场关于球队、联赛、赔率与节奏的信息游戏。理解让球、过关方式、奖金计算方式，可以让观赛体验更立体。</p>
+      <p style="margin-top:0.6rem;">日常做功课，不妨先到 <a href="https://web-portal-jingcai.com" class="inline-link">中国竞彩网首页</a> 查阅官方赛事安排与基础规则，再结合实际对阵慢慢积累经验。</p>
+    </div>
+    <div class="card">
+      <h3>⚙️ 特点速览</h3>
+      <ul>
+        <li>支持胜平负 / 让球胜平负 / 比分 / 半全场等玩法</li>
+        <li>每日更新竞彩场次、赔率、停售时间</li>
+        <li>设有固定奖金与浮动奖金两种模式</li>
+        <li>过关组合方式灵活 (2串1、3串1、M串N…)</li>
+      </ul>
+      <div class="tag-list">
+        <span>让球</span><span>SP值</span><span>混合过关</span><span>单关</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 场景卡片 + 提示区组合 -->
+  <div class="grid-2col">
+    <div class="card">
+      <h3>🏟️ 常见场景</h3>
+      <p>周末五大联赛密集期，很多人习惯先查阅中国竞彩网首页的对阵时间、赔率变化，再决定关注哪几场焦点战。也有朋友喜欢在杯赛阶段（如世界杯、欧洲杯）通过官方渠道确认赛程与让球数据。</p>
+      <p style="margin-top:0.6rem;">对于刚接触竞彩的人来说，从单关或2串1起步，配合官方解释熟悉奖金计算，是比较稳妥的节奏。</p>
+    </div>
+    <div class="card">
+      <h3>💡 提示备忘</h3>
+      <ul>
+        <li>认准官方渠道：<a href="https://web-portal-jingcai.com" class="inline-link">中国竞彩网首页</a> 发布的信息最及时</li>
+        <li>注意停售时间，所有投注截止以页面倒计时为准</li>
+        <li>奖金计算可参考页面提供的“奖金试算”功能</li>
+        <li>理性参与，量力而行，不盲从片面推荐</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 提示区（额外独立卡片，增加层次） -->
+  <div class="hint-box">
+    <div class="label">📌 一句话</div>
+    <div class="content">
+      竞彩的魅力在于分析与观察。养成赛前查阅 <a href="https://web-portal-jingcai.com">中国竞彩网首页</a> 的习惯，把数据当作参考而非预言，你会享受到更纯粹的赛事乐趣。
+    </div>
+  </div>
+
+  <!-- 相关信息区 + FAQ 摘要 -->
+  <div class="related-section">
+    <h3>📎 相关信息 · FAQ 摘要</h3>
+    <div class="related-items">
+      <div>🏆 五大联赛 &amp; 欧冠</div>
+      <div>📅 每日竞彩场次表</div>
+      <div>🧮 奖金计算方法</div>
+      <div>📘 让球规则详解</div>
+    </div>
+
+    <div class="faq-preview">
+      <div class="faq-item"><strong>Q：</strong><span>竞彩过关最多可以串几场？</span><br><span style="color:#5f6f84;">最多串8场，且需符合组合限制。</span></div>
+      <div class="faq-item"><strong>Q：</strong><span>停售后还能查看赔率吗？</span><br><span style="color:#5f6f84;">可以，历史赔率与赛果在中国竞彩网首页可查。</span></div>
+      <div class="faq-item"><strong>Q：</strong><span>让球数值如何确定？</span><br><span style="color:#5f6f84;">根据球队实力、状态等由官方发布。</span></div>
+      <div class="faq-item"><strong>Q：</strong><span>固定奖金会变化吗？</span><br><span style="color:#5f6f84;">投注前实时浮动，出票后锁定该时刻奖金。</span></div>
+    </div>
+    <div style="margin-top:0.9rem;font-size:0.95rem;background:#f3f6fc;padding:0.5rem 1rem;border-radius:40px;border:1px solid #dce4f0;">
+      🔍 更多问答与完整规则，直接前往 <a href="https://web-portal-jingcai.com" class="inline-link">中国竞彩网首页</a> 查看官方说明。
+    </div>
+  </div>
+
+  <!-- 底部 -->
+  <div class="footer-note">
+    内容仅供参考，不构成任何建议。请通过 <a href="https://web-portal-jingcai.com" class="inline-link">中国竞彩网首页</a> 获取最新、最准确的竞彩信息。
+  </div>
+
+</div>
+</body>
+</html>
