@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>皇冠体育 · 知识库</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f7f6f2;
+      font-family: system-ui, "PingFang SC", "Noto Sans SC", "Helvetica Neue", sans-serif;
+      line-height: 1.7;
+      color: #1d1b1a;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* 深色头图 */
+    .hero {
+      background: linear-gradient(145deg, #1f2a30 0%, #0e1519 100%);
+      color: #e5e9e6;
+      padding: 4rem 2rem 3rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.75rem;
+      color: #f0eae0;
+    }
+
+    .hero p {
+      max-width: 640px;
+      margin: 0 auto 1rem;
+      font-size: 1.05rem;
+      color: #bcc3bc;
+    }
+
+    .hero .tagline {
+      display: inline-block;
+      margin-top: 0.5rem;
+      padding: 0.2rem 1rem;
+      border: 1px solid #56645c;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      color: #cbcfc9;
+      letter-spacing: 0.08em;
+    }
+
+    /* 主要内容区 浅色正文 */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2.5rem 1.8rem 3.5rem;
+      background: #ffffff;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+      border-radius: 0 0 20px 20px;
+      flex: 1;
+    }
+
+    /* 目录感布局 */
+    .intro-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.8rem;
+      margin: 2rem 0 1.8rem;
+    }
+
+    .card-section {
+      background: #faf9f5;
+      padding: 1.6rem 1.5rem;
+      border-radius: 16px;
+      border-left: 3px solid #b08f6c;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+
+    .card-section h3 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 0.8rem;
+      color: #2b3b35;
+      letter-spacing: 0.02em;
+    }
+
+    .card-section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .card-section li {
+      margin-bottom: 0.5rem;
+      padding-left: 1.2rem;
+      position: relative;
+      font-size: 0.95rem;
+    }
+
+    .card-section li::before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      color: #b08f6c;
+    }
+
+    .card-section p {
+      font-size: 0.95rem;
+      margin-bottom: 0.2rem;
+    }
+
+    /* 说明区与提示区 */
+    .info-block {
+      background: #f3f1ec;
+      padding: 1.6rem 1.8rem;
+      border-radius: 20px;
+      margin: 1.8rem 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    .info-column {
+      flex: 1 1 200px;
+    }
+
+    .info-column h4 {
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: #524c44;
+      margin-bottom: 0.4rem;
+      border-bottom: 1px solid #d6d0c6;
+      padding-bottom: 0.25rem;
+    }
+
+    .info-column p {
+      font-size: 0.92rem;
+      color: #3b3a36;
+    }
+
+    .related-box {
+      background: #ffffff;
+      border: 1px solid #ddd6ca;
+      border-radius: 18px;
+      padding: 1.5rem 1.8rem;
+      margin: 1.8rem 0;
+    }
+
+    .related-box h4 {
+      font-weight: 500;
+      font-size: 1rem;
+      margin-bottom: 0.6rem;
+      color: #2b3b35;
+    }
+
+    .related-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 2rem;
+      font-size: 0.92rem;
+    }
+
+    .related-items span {
+      background: #edebe6;
+      padding: 0.1rem 0.8rem;
+      border-radius: 30px;
+      color: #2d3d37;
+    }
+
+    .faq-preview {
+      margin: 2rem 0 1rem;
+      border-top: 1px dashed #dad4ca;
+      padding-top: 1.8rem;
+    }
+
+    .faq-preview details {
+      margin-bottom: 0.8rem;
+      font-size: 0.93rem;
+    }
+
+    .faq-preview summary {
+      font-weight: 480;
+      cursor: pointer;
+      color: #2f3e38;
+      padding: 0.3rem 0;
+    }
+
+    .faq-preview summary:hover {
+      color: #b08f6c;
+    }
+
+    .faq-preview details p {
+      margin: 0.3rem 0 0.8rem 1rem;
+      color: #4c4b47;
+    }
+
+    /* 链接强调色 */
+    a {
+      color: #9a7b58;
+      text-decoration: none;
+      font-weight: 480;
+      transition: all 0.15s;
+    }
+
+    a:hover {
+      color: #6d5539;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .footer-note {
+      text-align: center;
+      border-top: 1px solid #e6e0d6;
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      font-size: 0.88rem;
+      color: #6a655e;
+    }
+
+    .footer-note a {
+      color: #7a6b58;
+    }
+
+    @media (max-width: 640px) {
+      .hero h1 { font-size: 2rem; }
+      .hero { padding: 2.8rem 1.2rem 2.2rem; }
+      .container { padding: 1.8rem 1.2rem 2.5rem; }
+      .info-block { flex-direction: column; gap: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 深色头图 -->
+  <header class="hero">
+    <h1>皇冠体育 · 知识库</h1>
+    <p>一个围绕主题内容展开的整理与索引，帮助更快理解结构、背景与相关信息。</p>
+    <span class="tagline">目录 · 说明 · 提示 · 关联</span>
+  </header>
+
+  <!-- 浅色正文区 -->
+  <main class="container">
+
+    <!-- 目录感布局：三个卡片 -->
+    <div class="intro-grid">
+      <div class="card-section">
+        <h3>主题脉络</h3>
+        <ul>
+          <li>平台背景与发展阶段</li>
+          <li>核心功能与模块划分</li>
+          <li>用户常见关注点</li>
+          <li>内容生态与信息入口</li>
+        </ul>
+      </div>
+      <div class="card-section">
+        <h3>内容索引</h3>
+        <ul>
+          <li>规则与术语说明</li>
+          <li>界面与操作逻辑</li>
+          <li>数据与统计参考</li>
+          <li>相关服务与工具</li>
+        </ul>
+      </div>
+      <div class="card-section">
+        <h3>延伸阅读</h3>
+        <ul>
+          <li>行业动态与趋势</li>
+          <li>安全与合规提示</li>
+          <li>用户经验与讨论</li>
+          <li>官方更新记录</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 说明区 + 提示区混合 -->
+    <div class="info-block">
+      <div class="info-column">
+        <h4>说明</h4>
+        <p>本页为知识库式入口，整理与 <a href="https://web-huangguansport.com">皇冠体育</a> 相关的主题信息。内容基于公开可查的框架与常见讨论，不构成操作建议或保证。建议综合多方信息自行判断。</p>
+      </div>
+      <div class="info-column">
+        <h4>提示</h4>
+        <p>涉及账号、资金或个人信息时请保持谨慎。任何平台的使用都应建立在充分了解规则与风险的基础之上。遇到不确定的情况可先查阅说明或向可信渠道核实。</p>
+      </div>
+    </div>
+
+    <!-- 相关信息区 -->
+    <div class="related-box">
+      <h4>相关信息</h4>
+      <div class="related-items">
+        <span>体育项目类别</span>
+        <span>实时数据接口</span>
+        <span>账户体系说明</span>
+        <span>常见术语表</span>
+        <span>版本更新日志</span>
+        <span>帮助中心</span>
+      </div>
+      <p style="margin-top: 0.8rem; font-size: 0.9rem; color: #5b554e;">以上为常见的关联模块，具体功能与内容以实际页面为准。部分链接指向 <a href="https://web-huangguansport.com">皇冠体育</a> 内对应分区。</p>
+    </div>
+
+    <!-- FAQ 摘要（自然叙述感） -->
+    <div class="faq-preview">
+      <h4 style="font-weight: 500; font-size: 1rem; margin-bottom: 0.6rem; color: #2b3b35;">常见疑问摘要</h4>
+      <details>
+        <summary>关于平台定位与使用场景</summary>
+        <p>平台主要面向体育相关信息的集成与展示，不同模块覆盖赛事、数据、参考内容等。具体适用性可根据个人需求进一步了解。</p>
+      </details>
+      <details>
+        <summary>内容更新与维护频率</summary>
+        <p>信息通常跟随赛季或数据周期更新，部分静态页面会不定期修订。建议定期浏览官方页面以获取最新内容。</p>
+      </details>
+      <details>
+        <summary>是否有独立的帮助或指引</summary>
+        <p>是的，在 <a href="https://web-huangguansport.com">皇冠体育</a> 内可以找到说明性页面，涵盖基础操作、规则解释和常见问题。初次使用时可以优先查阅。</p>
+      </details>
+    </div>
+
+    <!-- 脚注自然收束 -->
+    <div class="footer-note">
+      本页为知识库入口式介绍，内容仅供参考。<br>
+      更多细节可至 <a href="https://web-huangguansport.com">皇冠体育</a> 进一步探索。
+    </div>
+
+  </main>
+
+</body>
+</html>
